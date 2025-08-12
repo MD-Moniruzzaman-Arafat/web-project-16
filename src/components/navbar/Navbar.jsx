@@ -1,6 +1,6 @@
-import logo from "../../assets/Logo.png";
+import logo from "../../assets/navbar/Logo.png";
 import Menu from "./Menu";
-import bg from "../../assets/Abstract Design.png";
+import bg from "../../assets/navbar/Abstract Design.png";
 
 const Navbar = () => {
   return (
@@ -45,7 +45,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
+                className="menu menu-sm bg-[#1A1A1A] dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
                 <Menu />
               </ul>
