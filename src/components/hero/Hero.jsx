@@ -22,6 +22,20 @@ const Hero = () => {
               Browse Properties
             </button>
           </div>
+          <div className="my-5 grid grid-cols-2 md:grid-cols-3 gap-3 md:max-w-xl">
+            <div className="bg-[#1A1A1A] border border-[#262626] px-2 py-5 rounded-lg text-center md:text-justify">
+              <h3 className="font-bold text-xl">200+</h3>
+              <p className="text-[#999] text-xs">Happy Customers</p>
+            </div>
+            <div className="bg-[#1A1A1A] border border-[#262626] px-2 py-5 rounded-lg text-center md:text-justify">
+              <h3 className="font-bold text-xl">10k+</h3>
+              <p className="text-[#999] text-xs">Properties For Clients</p>
+            </div>
+            <div className="bg-[#1A1A1A] border border-[#262626] px-2 py-5 rounded-lg col-span-2 md:col-span-1 text-center md:text-justify">
+              <h3 className="font-bold text-xl">16+</h3>
+              <p className="text-[#999] text-xs">Years of Experience</p>
+            </div>
+          </div>
         </div>
         <div
           className="bg-[#1A1A1A] m-3 rounded-2xl md:m-0 md:rounded-none relative "
