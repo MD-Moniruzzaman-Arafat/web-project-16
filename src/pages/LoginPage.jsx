@@ -1,7 +1,20 @@
+import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router";
+import { AuthContext } from "../context";
 
 const LoginPage = () => {
+  const { setAuthData, authError, setAuthError, googleSignIn } =
+    useContext(AuthContext);
+
+  async function handleGoogleSignIn() {
+    try {
+      const result = await googleSignIn();
+      setAuthData(result);
+    } catch (error) {
+      setAuthError(error);
+    }
+  }
   return (
     <>
       <div className="container mx-auto min-h-screen flex justify-center items-center text-white">
@@ -29,7 +42,10 @@ const LoginPage = () => {
             <button className="btn my-3 w-full bg-black text-white border-none shadow-none">
               Login
             </button>
-            <button className="btn my-3 rounded-full w-10 p-0 text-center bg-black text-white border-none shadow-none">
+            <button
+              onClick={handleGoogleSignIn}
+              className="btn my-3 rounded-full w-10 p-0 text-center bg-black text-white border-none shadow-none"
+            >
               <FcGoogle />
             </button>
           </div>
@@ -45,6 +61,7 @@ const LoginPage = () => {
               </Link>
             </small>
           </p>
+          {authError}
         </div>
       </div>
     </>
