@@ -2,8 +2,20 @@ import logo from "../../assets/navbar/Logo.png";
 import Menu from "./Menu";
 import bg from "../../assets/navbar/Abstract Design.png";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../../context";
 
 const Navbar = () => {
+  const { authData, googleSignOut, setAuthError } = useContext(AuthContext);
+
+  async function handleGoogleSignOut() {
+    try {
+      await googleSignOut();
+    } catch (error) {
+      setAuthError(error);
+    }
+  }
+
   return (
     <>
       <div
@@ -60,10 +72,32 @@ const Navbar = () => {
               <Menu />
             </ul>
           </div>
-          <div className="navbar-end">
-            <Link to={"/login"} className="btn">
-              Login
-            </Link>
+          <div className="navbar-end gap-2">
+            {authData ? (
+              <>
+                <div
+                  className="tooltip avatar avatar-placeholder"
+                  data-tip={`${authData?.displayName}`}
+                >
+                  <div className="bg-neutral text-neutral-content w-8 rounded-full">
+                    <img src={authData?.photoURL} alt="" />
+                  </div>
+                </div>
+                <Link
+                  onClick={handleGoogleSignOut}
+                  className="py-1 px-5 bg-white text-black rounded-xs"
+                >
+                  Logout
+                </Link>
+              </>
+            ) : (
+              <Link
+                to={"/login"}
+                className="py-1 px-5 bg-white text-black rounded-xs"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </div>

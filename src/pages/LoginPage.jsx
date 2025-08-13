@@ -4,13 +4,11 @@ import { Link } from "react-router";
 import { AuthContext } from "../context";
 
 const LoginPage = () => {
-  const { setAuthData, authError, setAuthError, googleSignIn } =
-    useContext(AuthContext);
+  const { authError, setAuthError, googleSignIn } = useContext(AuthContext);
 
   async function handleGoogleSignIn() {
     try {
-      const result = await googleSignIn();
-      setAuthData(result);
+      await googleSignIn();
     } catch (error) {
       setAuthError(error);
     }

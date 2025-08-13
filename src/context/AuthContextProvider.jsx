@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AuthContext } from ".";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 import auth from "../firebase/firebaseConfiq";
+import Loading from "../components/loading/Loading";
 
 const AuthContextProvider = ({ children }) => {
   const [authData, setAuthData] = useState(null);
   const [authError, setAuthError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // provider
   const googleAuthProvider = new GoogleAuthProvider();
@@ -20,6 +27,30 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
+  // google signOut function
+  async function googleSignOut() {
+    try {
+      const response = await signOut(auth);
+      return response;
+    } catch (error) {
+      return error;
+    }
+  }
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthData(user);
+        setLoading(false);
+      } else {
+        setAuthData();
+        setLoading(false);
+      }
+    });
+  }, []);
+
+  if (loading) return <Loading />;
+
   return (
     <>
       <AuthContext.Provider
@@ -29,6 +60,7 @@ const AuthContextProvider = ({ children }) => {
           authError,
           setAuthError,
           googleSignIn,
+          googleSignOut,
         }}
       >
         {children}
