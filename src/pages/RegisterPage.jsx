@@ -1,19 +1,35 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <>
       <div className="container mx-auto min-h-screen flex justify-center items-center text-white">
         <div className="lg:min-w-xl bg-[#1A1A1A] rounded-lg p-10 my-10">
-          <h1 className="font-bold text-center text-2xl">Login Page</h1>
+          <h1 className="font-bold text-center text-2xl">Register Page</h1>
           <form action="">
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend text-white">Name</legend>
+              <input
+                type="text"
+                className="w-full input text-black"
+                placeholder="write valid name"
+              />
+            </fieldset>
             <fieldset className="fieldset">
               <legend className="fieldset-legend text-white">Email</legend>
               <input
                 type="email"
                 className="w-full input text-black"
                 placeholder="write valid email"
+              />
+            </fieldset>
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend text-white">PhotoURL</legend>
+              <input
+                type="text"
+                className="w-full input text-black"
+                placeholder="write valid photoUrl"
               />
             </fieldset>
             <fieldset className="fieldset">
@@ -35,13 +51,9 @@ const LoginPage = () => {
           </div>
           <p className="text-center">
             <small>
-              Don't have an account{" "}
-              <Link
-                to={"/register"}
-                className="text-warning border-b-1"
-                href=""
-              >
-                Register
+              have an account{" "}
+              <Link to={"/login"} className="text-warning border-b-1" href="">
+                Login
               </Link>
             </small>
           </p>
@@ -51,4 +63,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

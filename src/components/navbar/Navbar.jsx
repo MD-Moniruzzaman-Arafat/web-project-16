@@ -14,7 +14,7 @@ const Navbar = () => {
           backgroundSize: "cover",
         }}
       >
-        <p>
+        <p className="text-xs px-0.5">
           ✨Discover Your Dream Property with Estatein{" "}
           <span className="border-b-1">Learn More</span>
         </p>
