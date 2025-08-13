@@ -1,3 +1,5 @@
+import { FcGoogle } from "react-icons/fc";
+
 const LoginPage = () => {
   return (
     <>
@@ -21,10 +23,15 @@ const LoginPage = () => {
                 placeholder="write valid password"
               />
             </fieldset>
+          </form>
+          <div className="text-center">
             <button className="btn my-3 w-full bg-black text-white border-none shadow-none">
               Login
             </button>
-          </form>
+            <button className="btn my-3 rounded-full w-10 p-0 text-center bg-black text-white border-none shadow-none">
+              <FcGoogle />
+            </button>
+          </div>
           <p className="text-center">
             <small>
               Don't have an account{" "}
