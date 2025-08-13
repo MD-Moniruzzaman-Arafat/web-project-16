@@ -1,8 +1,10 @@
+import { NavLink } from "react-router";
+
 const Menu = () => {
   return (
     <>
       <li>
-        <a>Home</a>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
         <a>About Us</a>
