@@ -27,13 +27,12 @@ const RegisterPage = () => {
     setIsRegister(true);
 
     try {
-      const result = await createUser(
+      await createUser(
         registerData.name,
         registerData.email,
         registerData.photoUrl,
         registerData.password
       );
-      console.log(result.user);
     } catch (error) {
       setAuthError(error);
     }
@@ -90,7 +89,7 @@ const RegisterPage = () => {
               />
             </fieldset>
             <button className="btn my-3 w-full bg-black text-white border-none shadow-none">
-              Login
+              Register
             </button>
           </form>
           <div className="text-center">

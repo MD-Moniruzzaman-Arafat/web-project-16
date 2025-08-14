@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -44,6 +45,16 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
+  // sign in using email and password function
+  async function signinUsingEmailAndPassword(email, password) {
+    try {
+      const response = await signInWithEmailAndPassword(auth, email, password);
+      return response;
+    } catch (error) {
+      return error;
+    }
+  }
+
   // google signOut function
   async function signOutUser() {
     try {
@@ -59,6 +70,7 @@ const AuthContextProvider = ({ children }) => {
       if (user) {
         if (!isRegister) {
           setAuthData(user);
+          console.log(user);
           setLoading(false);
         }
         setLoading(false);
@@ -68,8 +80,6 @@ const AuthContextProvider = ({ children }) => {
       }
     });
   }, [isRegister]);
-
-  console.log(authData);
 
   if (loading) return <Loading />;
 
@@ -85,6 +95,7 @@ const AuthContextProvider = ({ children }) => {
           createUser,
           signOutUser,
           setIsRegister,
+          signinUsingEmailAndPassword,
         }}
       >
         {children}
