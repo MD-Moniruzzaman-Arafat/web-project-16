@@ -6,11 +6,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../context";
 
 const Navbar = () => {
-  const { authData, googleSignOut, setAuthError } = useContext(AuthContext);
+  const { authData, signOutUser, setAuthError } = useContext(AuthContext);
 
-  async function handleGoogleSignOut() {
+  async function handleSignOut() {
     try {
-      await googleSignOut();
+      await signOutUser();
     } catch (error) {
       setAuthError(error);
     }
@@ -83,12 +83,12 @@ const Navbar = () => {
                     <img src={authData?.photoURL} alt="" />
                   </div>
                 </div>
-                <Link
-                  onClick={handleGoogleSignOut}
-                  className="py-1 px-5 bg-white text-black rounded-xs"
+                <a
+                  onClick={handleSignOut}
+                  className="cursor-pointer py-1 px-5 bg-white text-black rounded-xs"
                 >
                   Logout
-                </Link>
+                </a>
               </>
             ) : (
               <Link
