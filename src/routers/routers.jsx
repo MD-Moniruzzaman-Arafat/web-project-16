@@ -5,6 +5,7 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import { loadData } from "../fetchDataFun/fetchDataFun";
 import AllPropertiesPage from "../pages/AllPropertiesPage";
+import ProductDetailsPage from "../pages/ProductDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
       {
         path: "/view-all-properties",
         element: <AllPropertiesPage />,
+        loader: loadData,
+      },
+      {
+        path: "/product-details/:id",
+        element: <ProductDetailsPage />,
         loader: loadData,
       },
       {

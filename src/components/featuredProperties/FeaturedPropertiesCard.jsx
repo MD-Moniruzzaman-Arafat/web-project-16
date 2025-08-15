@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const FeaturedPropertiesCard = ({ data }) => {
   return (
     <>
@@ -23,9 +25,12 @@ const FeaturedPropertiesCard = ({ data }) => {
               <p className="text-xs">Price</p>
               <h3 className="font-bold">{data?.price}</h3>
             </span>
-            <button className="btn bg-[#703BF7] text-white border-0 shadow-none text-xs">
+            <Link
+              to={`/product-details/${data?.id}`}
+              className="btn bg-[#703BF7] text-white border-0 shadow-none text-xs"
+            >
               View Property Details
-            </button>
+            </Link>
           </div>
         </div>
       </div>
