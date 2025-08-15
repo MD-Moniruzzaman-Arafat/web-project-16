@@ -1,13 +1,23 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 # web-project-16
+
+# Project Features and Used Technologies
+
+## Features
+
+- User authentication (login/register)
+- Responsive homepage with hero section
+- Property listing with featured properties
+- Property details page
+- Private routes for authenticated users
+- Loading indicators for async actions
+- Modern navigation bar and footer
+
+## Used Technologies
+
+- **React**: Frontend library for building UI
+- **React Router**: Client-side routing
+- **Firebase**: Authentication and backend services
+- **Vite**: Fast development build tool
+- **Context API**: State management
+- **TAILWIND CSS**: Styling components
+- **ESLint**: Code linting
