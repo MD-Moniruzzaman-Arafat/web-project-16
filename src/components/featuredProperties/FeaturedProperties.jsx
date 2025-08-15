@@ -25,7 +25,7 @@ const FeaturedProperties = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-20">
-          {result.map((data) => (
+          {result.slice(0, 3).map((data) => (
             <FeaturedPropertiesCard key={data?.id} data={data} />
           ))}
         </div>

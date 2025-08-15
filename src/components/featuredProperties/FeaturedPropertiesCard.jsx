@@ -21,7 +21,7 @@ const FeaturedPropertiesCard = ({ data }) => {
           <div className="card-actions items-center justify-between">
             <span>
               <p className="text-xs">Price</p>
-              <h3 className="font-bold">$555.000</h3>
+              <h3 className="font-bold">{data?.price}</h3>
             </span>
             <button className="btn bg-[#703BF7] text-white border-0 shadow-none text-xs">
               View Property Details
