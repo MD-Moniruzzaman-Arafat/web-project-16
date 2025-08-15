@@ -23,7 +23,7 @@ const ProductDetailsPage = () => {
           <div className="card-body px-2">
             <h2 className="card-title">{detailsInfo?.estate_title}</h2>
             <h4>{detailsInfo?.segment_name}</h4>
-            <p>{detailsInfo.description}</p>
+            <p>{detailsInfo?.description}</p>
             <div className="flex items-center gap-2 flex-wrap my-2 justify-center">
               {detailsInfo?.facilities.map((f) => (
                 <span
