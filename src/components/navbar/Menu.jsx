@@ -10,7 +10,7 @@ const Menu = () => {
         <a>About Us</a>
       </li>
       <li>
-        <a>Properties</a>
+        <NavLink to={"/view-all-properties"}>Properties</NavLink>
       </li>
       <li>
         <a>Services</a>

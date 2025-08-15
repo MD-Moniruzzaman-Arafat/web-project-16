@@ -16,7 +16,7 @@ const AuthContextProvider = ({ children }) => {
   const [authData, setAuthData] = useState(null);
   const [authError, setAuthError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isRegister, setIsRegister] = useState(true);
+  const [isRegister, setIsRegister] = useState(false);
 
   // provider
   const googleAuthProvider = new GoogleAuthProvider();

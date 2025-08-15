@@ -6,6 +6,7 @@ import RegisterPage from "../pages/RegisterPage";
 import { loadData } from "../fetchDataFun/fetchDataFun";
 import AllPropertiesPage from "../pages/AllPropertiesPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -19,12 +20,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/view-all-properties",
-        element: <AllPropertiesPage />,
+        element: (
+          <PrivateRoute>
+            <AllPropertiesPage />
+          </PrivateRoute>
+        ),
         loader: loadData,
       },
       {
         path: "/product-details/:id",
-        element: <ProductDetailsPage />,
+        element: (
+          <PrivateRoute>
+            <ProductDetailsPage />
+          </PrivateRoute>
+        ),
         loader: loadData,
       },
       {

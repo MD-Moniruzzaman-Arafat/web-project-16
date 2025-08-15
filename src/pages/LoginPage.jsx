@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context";
 
 const LoginPage = () => {
@@ -17,6 +17,9 @@ const LoginPage = () => {
     signinUsingEmailAndPassword,
   } = useContext(AuthContext);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   function handleChange(e) {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
@@ -27,7 +30,11 @@ const LoginPage = () => {
 
     setIsRegister(false);
     try {
-      await signinUsingEmailAndPassword(loginData.email, loginData.password);
+      const result = await signinUsingEmailAndPassword(
+        loginData.email,
+        loginData.password
+      );
+      result && navigate(location.state ? location.state : "/");
     } catch (error) {
       setAuthError(error);
     }
@@ -36,7 +43,8 @@ const LoginPage = () => {
   async function handleGoogleSignIn() {
     setIsRegister(false);
     try {
-      await googleSignIn();
+      const result = await googleSignIn();
+      result && navigate(location.state ? location.state : "/");
     } catch (error) {
       setAuthError(error);
     }
