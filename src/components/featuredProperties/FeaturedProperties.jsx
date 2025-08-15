@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import FeaturedPropertiesCard from "./FeaturedPropertiesCard";
 
 const FeaturedProperties = () => {
@@ -18,9 +18,12 @@ const FeaturedProperties = () => {
             </p>
           </div>
           <div className="">
-            <button className="btn text-xs bg-[#1A1A1A] text-white">
+            <Link
+              to={"/view-all-properties"}
+              className="btn text-xs bg-[#1A1A1A] text-white"
+            >
               View All Properties
-            </button>
+            </Link>
           </div>
         </div>
 

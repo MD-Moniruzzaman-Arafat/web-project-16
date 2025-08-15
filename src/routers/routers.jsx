@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import { loadData } from "../fetchDataFun/fetchDataFun";
+import AllPropertiesPage from "../pages/AllPropertiesPage";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+        loader: loadData,
+      },
+      {
+        path: "/view-all-properties",
+        element: <AllPropertiesPage />,
         loader: loadData,
       },
       {
